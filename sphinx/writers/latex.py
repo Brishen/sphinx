@@ -625,7 +625,7 @@ class LaTeXTranslator(SphinxTranslator):
     def visit_production(self, node: Element) -> None:
         if node['tokenname']:
             tn = node['tokenname']
-            self.body.append(self.hypertarget('grammar-token-' + tn))
+            self.body.append(self.hypertarget(node.attributes['ids'][0]))
             self.body.append('\\production{%s}{' % self.encode(tn))
         else:
             self.body.append('\\productioncont{')
